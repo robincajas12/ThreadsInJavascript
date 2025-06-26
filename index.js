@@ -50,14 +50,14 @@ for (let i = 0; i < nWorkers; i++) {
     resultados[i] = e.data;
     terminados++;
     if (terminados === nWorkers) {
-      // Todos terminaron, sumar resultados
+      
       const sumaTotal = resultados.reduce((a, b) => a + b, 0);
       document.getElementById("resultado").innerText =
         "Suma total: " + sumaTotal;
     }
-    worker.terminate(); // liberar worker
+    worker.terminate(); 
   };
-  // Enviar la parte correspondiente al worker
+
   worker.postMessage(partes[i]);
 }
 console.timeEnd();
